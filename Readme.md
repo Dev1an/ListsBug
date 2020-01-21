@@ -8,4 +8,4 @@
 4. Select one element from the right list
 5. Try to select an element from the left list again
 
-![screen capture](screen capture.gif)
+![screen capture](screen%20capture.gif)
