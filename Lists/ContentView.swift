@@ -14,10 +14,17 @@ struct ContentView: View {
 
     var body: some View {
 		HStack{
-			List(20..<30, selection: $selectionOne) { Text(String($0)) }
-			List(66..<76, selection: $selectionTwo) { Text(String($0)) }
+			list(20..<30, binding: $selectionOne)
+			list(66..<76, binding: $selectionTwo)
 		}
     }
+
+	func list(_ range: Range<Int>, binding: Binding<Set<Int>>) -> some View {
+		VStack {
+			List(range, id: \.self, selection: binding) { Text("Item \($0)") }
+			Text(binding.wrappedValue.map{"\($0)"}.joined(separator: ", "))
+		}.frame(minWidth: 100, minHeight: 100)
+	}
 }
 
 
